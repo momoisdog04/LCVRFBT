@@ -65,6 +65,14 @@ public class Config(string assemblyPath, ConfigFile file)
     public ConfigEntry<bool> DisableVolumetrics { get; } = file.Bind("Performance", "DisableVolumetrics", false,
         "Disables volumetrics in the game, which significantly improves performance, but removes all fog and may be considered cheating.");
 
+    // FBT configuration
+    
+    public ConfigEntry<bool> EnableFBT { get; } = file.Bind("FBT", "EnableFBT", true,
+        "Enables Full Body Tracking (FBT) when trackers are detected.");
+        
+    public ConfigEntry<bool> ShowFBTCalibrationPrompt { get; } = file.Bind("FBT", "ShowFBTCalibrationPrompt", true,
+        "Shows a calibration prompt when FBT trackers are detected.");
+        
     // Input configuration
 
     public ConfigEntry<TurnProviderOption> TurnProvider { get; } = file.Bind("Input", "TurnProvider",

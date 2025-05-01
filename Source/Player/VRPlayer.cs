@@ -213,6 +213,16 @@ public class VRPlayer : MonoBehaviour
 
         Logger.LogDebug("Initialized XR Rig");
 
+        // Add FBT components
+        if (gameObject.GetComponent<FBTTracker>() == null)
+            gameObject.AddComponent<FBTTracker>();
+            
+        if (gameObject.GetComponent<FBTRig>() == null)
+            gameObject.AddComponent<FBTRig>();
+            
+        if (gameObject.GetComponent<FBTNetworking>() == null)
+            gameObject.AddComponent<FBTNetworking>();
+
         var networkSystem = NetworkSystem.Instance;
 
         prefsChannel = networkSystem.CreateChannel(ChannelType.PlayerPrefs, PlayerController.playerClientId);
